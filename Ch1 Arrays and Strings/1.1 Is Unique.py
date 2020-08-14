@@ -4,15 +4,20 @@
 
 class Solution():
     def isUnique(self, s):
-        unique = None
+        # Create empty dictionary, hashmap
         string_map = {}
 
+        # s > 256 not possible to since ASCII is finite
+        if len(s) > 256: 
+            return False
+
+        # Traverse string s, and check if letter for s exists in mapping
         for letter in s:
             if letter in string_map:
-                unique = False
-                break
+                return False
             else:
                 string_map[letter] = 0
-                unique = True
         
-        return unique
+        return True
+        
+        
