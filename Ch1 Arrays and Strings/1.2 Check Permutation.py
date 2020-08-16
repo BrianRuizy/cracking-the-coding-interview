@@ -3,4 +3,7 @@
 
 class Solution:
     def checkPermutation(self, s1, s2):
-        pass
+        s1_map = {}
+        
+        for index,letter in enumerate(s1):
+            s1_map[letter] = index
