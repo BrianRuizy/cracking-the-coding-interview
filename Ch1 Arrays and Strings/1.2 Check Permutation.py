@@ -3,7 +3,11 @@
 
 class Solution:
     def checkPermutation(self, s1, s2):
-        s1_map = {}
-        
-        for index,letter in enumerate(s1):
-            s1_map[letter] = index
+        # by definition permutations have same characters,
+        # therefore must also have same length. 
+        if len(s1) != len(s2):
+            return False
+
+        # since strings s1, s2 must have the same chars to be a valid permutation
+        # if sorting both strings we can get an accurate comparison
+        return sorted(s1) == sorted(s2)

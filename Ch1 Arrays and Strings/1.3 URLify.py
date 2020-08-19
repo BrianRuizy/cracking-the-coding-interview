@@ -15,4 +15,4 @@ class Solution:
 
     def urlify_2(self, s: str):
         # remove trailing whitespaces
-        s = s.strip()
+        s = s.strip()   
