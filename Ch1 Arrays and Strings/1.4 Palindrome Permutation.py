@@ -5,5 +5,5 @@
 # You can ignore casing and non-letter characters
 
 class Solution:
-    def palindromePermutation(self, s):
+    def palindrome_permutation(self, s):
         pass

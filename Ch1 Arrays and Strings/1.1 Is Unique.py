@@ -3,7 +3,7 @@
 # What if you cannot use additional data structures?
 
 class Solution():
-    def isUnique(self, s):
+    def is_unique(self, s):
         # Create empty dictionary, hashmap
         string_map = {}
 

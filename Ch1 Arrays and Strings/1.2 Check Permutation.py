@@ -2,9 +2,9 @@
 # Given two strings, write a method to decide if one is a permutation of the other
 
 class Solution:
-    def checkPermutation(self, s1, s2):
+    def check_permutation(self, s1, s2):
         # by definition permutations have same characters,
-        # therefore must also have same length. 
+        # therefore must also have same length.
         if len(s1) != len(s2):
             return False
 
