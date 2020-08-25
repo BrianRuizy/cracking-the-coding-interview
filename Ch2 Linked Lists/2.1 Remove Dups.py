@@ -20,7 +20,7 @@ class Node:
         return self.next
 
 
-class LinkedList():
+class LinkedList:
     def __init__(self, nodes=None):
         self.head = None
         if nodes is not None:

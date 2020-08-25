@@ -43,7 +43,11 @@ class LinkedList:
 
     def append_to_tail(self, data):
         # appends new node to tail of list in O(n) linear time
-        new_node = Node(data)
+        new_node = Node(data=data)
+        if self.head is None:
+            self.head = new_node
+            return
+
         current = self.head
         while current.next is not None:
             current = current.next
