@@ -26,6 +26,7 @@ class LinkedList:
         return ' -> '.join(nodes)
 
     def size(self):
+        # traverse list iteratively to find length
         count = 0
         current = self.head
         while current is not None:
@@ -33,6 +34,27 @@ class LinkedList:
             current = current.next
         return count
 
-    def kth_last(self, k):
-        # traverse list to find length
-        pass
+    def kth_to_last_naive(self, k):
+        """ Naive solution method assumes we know,
+        or allowed to find the size of the list"""
+        counter = 0
+        index = self.size() - k
+        current = self.head
+        while current.next is not None:
+            if counter == index:
+                return current.data
+            counter += 1
+            current = current.next
+
+    def kth_to_last(self, k):
+        ptr_1 = ptr_2 = self.head  # dual variable assignment
+        # make the ptr_1 'k' elements away from ptr_2
+        # whenever ptr_1 reaches the end, we will have the kth_to_last on ptr_2
+        for _ in range(k):
+            if ptr_1 is None:  # meaning out of bounds 'k'
+                raise IndexError(f'input k:{k} out of range')
+            ptr_1 = ptr_1.next
+
+        while ptr_1 is not None:
+            ptr_1, ptr_2 = ptr_1.next, ptr_2.next  # tuple unpacking
+        return ptr_2.data
