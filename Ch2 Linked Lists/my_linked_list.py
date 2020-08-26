@@ -20,19 +20,19 @@ class LinkedList:
     def __init__(self, nodes=None):
         self.head = None
         if nodes:
-            node = Node(data=nodes.pop(0))
-            self.head = node
+            node = Node(data=nodes.pop(0))  # first node, from first data
+            self.head = node  # assign head to first node
             for element in nodes:
-                node.next = Node(data=element)
-                node = node.next
+                node.next = Node(data=element)  # create node object
+                node = node.next  # step to next node
 
     def __repr__(self):
-        node = self.head
+        current = self.head
         nodes = []
-        while node is not None:
-            nodes.append(str(node.data))
-            node = node.next
-        nodes.append('None')
+        while current:
+            nodes.append(str(current.data))
+            current = current.next
+        nodes.append('None')  # signal end of list
         return ' -> '.join(nodes)
 
     def append_to_head(self, data):
@@ -47,7 +47,6 @@ class LinkedList:
         if self.head is None:
             self.head = new_node
             return
-
         current = self.head
         while current.next is not None:
             current = current.next

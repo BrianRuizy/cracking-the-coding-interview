@@ -17,11 +17,11 @@ class LinkedList:
                 node = node.next
 
     def __repr__(self):
-        node = self.head
+        current = self.head
         nodes = []
-        while node is not None:
-            nodes.append(str(node.data))
-            node = node.next
+        while current is not None:
+            nodes.append(str(current.data))
+            current = current.next
         nodes.append('None')
         return ' -> '.join(nodes)
 
