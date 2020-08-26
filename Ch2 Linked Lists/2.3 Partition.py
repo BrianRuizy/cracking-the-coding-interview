@@ -37,27 +37,33 @@ class LinkedList:
         return ' -> '.join(nodes)
 
     def partition(self, x):
-        """split the linkedlist in two according to the current node 'n',
-        if (n < x), or (n >= x); respectively
-        
-        arguements: node.value
-        returns: self, list
-        
+        """split the linkedlist in two, according to the current node 'n'.
+        If (n < x), or (n >= x); respectively
+
+        arguments:
+            [node.value]: x
+        returns:
+            [Node()]: head
         example:
-        1->4->3->2->5->2, x = 3
-        [1 -> 2 -> 2],[4 -> 3 -> 5]
-        1 -> 2 -> 2 -> 4 -> 3 -> 5
+            1->4->3->2->5->2, x = 3
+            [1 -> 2 -> 2],[4 -> 3 -> 5]
+            1 -> 2 -> 2 -> 4 -> 3 -> 5
+
+        solution would be a 1-pass O(N) traversal of original list,
+        where N is the size of the linked-list
         """
-        list1 = list1_head= Node()  # will hold nodes < x        
+        list1 = list1_head = Node()  # will hold nodes < x
         list2 = list2_head = Node()  # will hold nodes >= x
 
         current = self.head  # pointer to traverse original list
         while current is not None:
             if current.data < x:
-                pass  # add to first list
+                list1.next = current  # add current to list1
+                list1 = list1.next  # step
             elif current.data >= x:
-                pass  # add to second list
-            current = current.next  # step traversal
-        
-        # merge the two and return new head
- 
+                list2.next = current  # add current to list2
+                list2 = list2.next  # step
+            current = current.next  # step forward in original list
+
+        list1.next = list2_head  # merge the two and return new head
+        return list1_head.next.__repr__()
