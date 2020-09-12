@@ -17,13 +17,16 @@ class StackMin:
 
     def push(self, x):
         self.stack.append(x)
+        # if val x is smaller than the current
+        # smallest in min stack, place at top of min stack
         if self.m_stack[-1] > x:
             self.m_stack.append(x)
 
     def pop(self):
-        y = self.stack.pop()
+        y = self.stack.pop()  # pop from stack and store as var 'y'
+        # if top value is smallest remove it from mins stack
         if self.m_stack[-1] >= y:
             self.m_stack.pop()
 
     def min(self):
-        return self.m_stack[-1]
+        return self.m_stack[-1]  # return top elem in mins stack
